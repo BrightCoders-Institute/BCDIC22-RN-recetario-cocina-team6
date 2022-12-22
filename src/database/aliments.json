@@ -1,0 +1,32 @@
+[
+	{
+		"name": "Peperoni Pizza",
+		"id": 1,
+		"image": "https://images.news18.com/ibnlive/uploads/2021/01/1610716314_untitled-design-2021-01-15t184025.049.jpg?im=FitAndFill,width=1200,height=1200"
+	},
+	{
+		"name": "Hamburger",
+		"id": 2,
+		"image": "https://media.gq.com.mx/photos/5ced746cd09b9ae227169147/16:9/w_2560%2Cc_limit/GettyImages-688974829.jpg"
+	},
+	{
+		"name": "Spaghetti",
+		"id": 3,
+		"image": "https://i0.wp.com/www.onceuponachef.com/images/2019/09/Spaghetti-and-Meatballs.jpg?resize=760%2C984&ssl=1"
+	},
+	{
+		"name": "Lasagna",
+		"id": 4,
+		"image": "https://www.deliciosi.com/images/1500/1519/lasa%C3%B1a-de-carne-mixta.jpg"
+	},
+	{
+		"name": "Fried Chicken",
+		"id": 5,
+		"image": "https://www.blogichef.com/wp-content/uploads/2013/07/kfc-e1669314944483.webp"
+	},
+	{
+		"name": "Roast Chicken",
+		"id": 6,
+		"image": "https://static-sevilla.abc.es/media/gurmesevilla/2010/03/pollo-asado-citricos-1920.jpg"
+	}
+]

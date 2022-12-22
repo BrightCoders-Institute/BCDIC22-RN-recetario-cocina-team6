@@ -1,35 +1,25 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import Constants from 'expo-constants';
 
 import Search from '../components/Search';
-import Card from '../components/Card';
+import HorizontalScrollMenu from '../components/HorizontalScrollMenu';
 
 const Home = () => {
 	const [searchPhrase, setSearchPhrase] = useState('');
 	const [clicked, setClicked] = useState(false);
 
 	return (
-		<View style={{ marginTop: 40 }}>
+		<ScrollView style={{ marginTop: Constants.statusBarHeight }}>
 			<Search searchPhrase={searchPhrase} setSearchPhrase={setSearchPhrase} clicked={clicked} setClicked={setClicked} />
 			<View>
-				<Card />
+				<HorizontalScrollMenu title='Trending' elementsSize='sm' />
 			</View>
-		</View>
+			<View>
+				<HorizontalScrollMenu title='Recent' elementsSize='lg' />
+			</View>
+		</ScrollView>
 	);
 };
 
 export default Home;
-
-const styles = StyleSheet.create({
-	root: {
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
-	title: {
-		width: '100%',
-		marginTop: 20,
-		fontSize: 25,
-		fontWeight: 'bold',
-		marginLeft: '10%',
-	},
-});

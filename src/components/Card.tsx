@@ -1,53 +1,53 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView, Dimensions } from 'react-native';
-//import { Constants } from 'expo';
+import { Text, Image, View, StyleSheet } from 'react-native';
+import { ICardProps } from '../interfaces/Card.js';
 
-const { width } = Dimensions.get('window');
-
-export default class Cards extends Component {
-	public scrollView: any;
-	componentDidMount() {
-		setTimeout(() => {
-			this.scrollView.scrollTo({ x: -30 });
-		}, 1); // scroll view position fix
+export default class Card extends Component<ICardProps> {
+	constructor(props: ICardProps) {
+		super(props);
 	}
 
 	render() {
 		return (
-			<ScrollView
-				ref={(scrollView) => {
-					this.scrollView = scrollView;
-				}}
-				style={styles.container}
-				//pagingEnabled={true}
-				horizontal={true}
-				decelerationRate={0}
-				snapToInterval={width - 60}
-				snapToAlignment={'center'}
-				contentInset={{
-					top: 0,
-					left: 30,
-					bottom: 0,
-					right: 30,
-				}}
-			>
-				<View style={styles.view} />
-				<View style={styles.view} />
-				<View style={styles.view} />
-			</ScrollView>
+			<View style={styles[`${this.props.elementsSize}_container`]}>
+				<Image source={{ uri: this.props.aliment.image }} style={styles[`${this.props.elementsSize}_image`]} />
+				<Text style={styles[`${this.props.elementsSize}_text`]}>{this.props.aliment.name}</Text>
+			</View>
 		);
 	}
 }
 
 const styles = StyleSheet.create({
-	container: {},
-	view: {
-		marginTop: 0,
-		backgroundColor: 'darkgrey',
-		width: width - 80,
-		margin: 10,
-		height: 200,
-		borderRadius: 10,
-		//paddingHorizontal : 30
+	lg_container: {
+		width: 220,
+		height: 240,
+		//marginRight: 10,
+		borderColor: '#282828',
+		borderWidth: 1,
+		backgroundColor: '#282828',
+		borderRadius: 5,
 	},
+	sm_container: {
+		width: 150,
+		height: 160,
+		//marginRight: 10,
+		borderColor: '#282828',
+		borderWidth: 1,
+		backgroundColor: '#282828',
+		borderRadius: 5,
+	},
+	lg_text: {
+		fontSize: 14,
+		color: '#ffffff',
+		width: 130,
+		marginTop: 10,
+	},
+	sm_text: {
+		fontSize: 14,
+		color: '#ffffff',
+		width: 130,
+		marginTop: 10,
+	},
+	lg_image: { width: 200, height: 200, borderRadius: 5 },
+	sm_image: { width: 130, height: 120, borderRadius: 5 },
 });
