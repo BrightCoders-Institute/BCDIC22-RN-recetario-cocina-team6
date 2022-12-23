@@ -1,13 +1,17 @@
+// Node modules
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
+// Classes
+import Aliment from '../classes/Aliment';
+// Components
 import Card from './Card';
-import Aliment from '../classes/Aliment.js';
-import { IHorizontalScrollMenuProps } from '../interfaces/HorizontalScrollMenu.js';
+// Databases
 import aliments from '../database/aliments.json';
+// Interfaces
+import { IHorizontalScrollMenuProps, IHorizontalScrollMenuState } from '../interfaces/HorizontalScrollMenu.js';
 
-export default class HorizontalScrollMenu extends Component<IHorizontalScrollMenuProps> {
-	public state: { aliments: Aliment[] };
-	constructor(props: IHorizontalScrollMenuProps) {
+export default class HorizontalScrollMenu extends Component<IHorizontalScrollMenuProps, IHorizontalScrollMenuState> {
+	constructor({ props }: { props: IHorizontalScrollMenuProps }) {
 		super(props);
 		this.state = {
 			aliments: aliments as Aliment[],
@@ -20,7 +24,7 @@ export default class HorizontalScrollMenu extends Component<IHorizontalScrollMen
 				<Text style={styles.title}>{this.props.title}</Text>
 				<ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
 					{this.state.aliments.map((aliment) => (
-						<Card key={aliment.id} aliment={aliment} elementsSize={this.props.elementsSize} />
+						<Card style={styles.card} key={aliment.id} aliment={aliment} elementsSize={this.props.elementsSize} />
 					))}
 				</ScrollView>
 			</View>
@@ -37,5 +41,8 @@ const styles = StyleSheet.create({
 		color: '#d91b73',
 		textTransform: 'uppercase',
 		marginBottom: 18,
+	},
+	card: {
+		marginRight: 15,
 	},
 });

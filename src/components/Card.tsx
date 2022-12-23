@@ -1,15 +1,17 @@
+// Node modules
 import React, { Component } from 'react';
 import { Text, Image, View, StyleSheet } from 'react-native';
-import { ICardProps } from '../interfaces/Card.js';
+// Interfaces
+import { ICardProps } from '../interfaces/Card';
 
 export default class Card extends Component<ICardProps> {
-	constructor(props: ICardProps) {
+	constructor({ props }: { props: ICardProps }) {
 		super(props);
 	}
 
 	render() {
 		return (
-			<View style={styles[`${this.props.elementsSize}_container`]}>
+			<View style={[styles[`${this.props.elementsSize}_container`], this.props.style]}>
 				<Image source={{ uri: this.props.aliment.image }} style={styles[`${this.props.elementsSize}_image`]} />
 				<Text style={styles[`${this.props.elementsSize}_text`]}>{this.props.aliment.name}</Text>
 			</View>
@@ -19,35 +21,31 @@ export default class Card extends Component<ICardProps> {
 
 const styles = StyleSheet.create({
 	lg_container: {
-		width: 220,
-		height: 240,
-		//marginRight: 10,
-		borderColor: '#282828',
-		borderWidth: 1,
-		backgroundColor: '#282828',
-		borderRadius: 5,
+		//backgroundColor: '#282828',
+		//borderColor: '#282828',
+		//borderWidth: 1,
+		//borderRadius: 5,
 	},
 	sm_container: {
-		width: 150,
-		height: 160,
-		//marginRight: 10,
-		borderColor: '#282828',
-		borderWidth: 1,
-		backgroundColor: '#282828',
-		borderRadius: 5,
+		//backgroundColor: '#282828',
+		//borderColor: '#282828',
+		//borderWidth: 1,
+		//borderRadius: 5,
 	},
 	lg_text: {
 		fontSize: 14,
 		color: '#ffffff',
-		width: 130,
+		width: 200,
 		marginTop: 10,
+		textAlign: 'center',
 	},
 	sm_text: {
 		fontSize: 14,
 		color: '#ffffff',
-		width: 130,
+		width: 100,
 		marginTop: 10,
+		textAlign: 'left',
 	},
 	lg_image: { width: 200, height: 200, borderRadius: 5 },
-	sm_image: { width: 130, height: 120, borderRadius: 5 },
+	sm_image: { width: 100, height: 100, borderRadius: 5 },
 });

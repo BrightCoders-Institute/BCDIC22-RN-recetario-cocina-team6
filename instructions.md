@@ -12,16 +12,16 @@
   - [Demo](#demo)
   - [Requerimientos no-funcionales](#requerimientos-no-funcionales)
   - [Recursos](#recursos)
-  
+
 # App Recetario de cocina
 
-  Atributo |  Valor
- --- | --- |
- Tipo | Colaborativo
- Estrategia | Mob Programming
- Modo | Síncrono
- Dedicación | 35 horas
- Duración | 10 días
+| Atributo   | Valor           |
+| ---------- | --------------- |
+| Tipo       | Colaborativo    |
+| Estrategia | Mob Programming |
+| Modo       | Síncrono        |
+| Dedicación | 35 horas        |
+| Duración   | 10 días         |
 
 ## Objetivos
 
@@ -62,7 +62,7 @@
 ## Requerimientos funcionales
 
 La empresa Foo Corp necesita una App para poder visualizar las recetas de cocina de sus restaurantes. La App deberá cumplir con los siguientes requerimientos:
-  
+
 - Pantalla principal
   - Listado con las recetas que están de moda (trending)
   - Listado con las recetas más recientes
@@ -113,7 +113,7 @@ Al ser reutilizables `List Item` y `Horizontal List`pueden servir tanto para tre
   - Orientado a Objetos
   - Métodos pequeños
   - Aplicar los principios SOLID
-  
+
 ## Recursos
 
 - Estructura tu pensamiento o forma de trabajo por componentes

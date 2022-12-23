@@ -1,4 +1,5 @@
-import { IAlimentConstructor } from '../interfaces/Aliment.js';
+// Interfaces
+import { IAlimentConstructor } from '../interfaces/Aliment';
 
 export default class Aliment {
 	public id: number;

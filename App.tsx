@@ -1,10 +1,15 @@
+// Node modules
+import React, { Component } from 'react';
 import { View } from 'react-native';
-import Home from './src/views/Home';
+// Screens
+import Home from './src/screens/Home';
 
-export default function App() {
-	return (
-		<View>
-			<Home />
-		</View>
-	);
+export default class App extends Component {
+	render() {
+		return (
+			<View>
+				<Home />
+			</View>
+		);
+	}
 }

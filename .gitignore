@@ -1,13 +1,14 @@
-node_modules/
 .expo/
-dist/
-npm-debug.*
+.vscode/.react
 *.jks
 *.p8
 *.p12
 *.key
 *.mobileprovision
 *.orig.*
+dist/
+node_modules/
+npm-debug.*
 web-build/
 
 # macOS
