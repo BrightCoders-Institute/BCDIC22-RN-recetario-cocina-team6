@@ -1,15 +1,14 @@
 // Node modules
 import React, { Component } from 'react';
-import { View } from 'react-native';
-// Screens
-import Home from './src/screens/Home';
+import Navigation from './src/navigation/Index';
 
 export default class App extends Component {
+	constructor(props: object) {
+		super(props);
+		this.state = {};
+	}
+
 	render() {
-		return (
-			<View>
-				<Home />
-			</View>
-		);
+		return <Navigation />;
 	}
 }

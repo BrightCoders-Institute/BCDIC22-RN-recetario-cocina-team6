@@ -6,14 +6,14 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { ISearchState } from '../interfaces/Search';
 
 export default class Search extends Component<object, ISearchState> {
-	constructor({ props }: { props: object }) {
+	constructor(props: object) {
 		super(props);
 		this.state = {
 			searchPhrase: '',
 			clicked: false,
 		};
-		this.setClicked = this.setClicked.bind(this);
-		this.setSearchPhrase = this.setSearchPhrase.bind(this);
+		//this.setClicked = this.setClicked.bind(this);
+		//this.setSearchPhrase = this.setSearchPhrase.bind(this);
 	}
 
 	setClicked = (clicked: boolean) => {

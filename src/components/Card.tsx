@@ -5,7 +5,7 @@ import { Text, Image, View, StyleSheet } from 'react-native';
 import { ICardProps } from '../interfaces/Card';
 
 export default class Card extends Component<ICardProps> {
-	constructor({ props }: { props: ICardProps }) {
+	constructor(props: ICardProps) {
 		super(props);
 	}
 

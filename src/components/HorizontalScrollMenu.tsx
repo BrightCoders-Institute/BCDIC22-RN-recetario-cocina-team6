@@ -1,6 +1,6 @@
 // Node modules
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 // Classes
 import Aliment from '../classes/Aliment';
 // Components
@@ -10,8 +10,8 @@ import aliments from '../database/aliments.json';
 // Interfaces
 import { IHorizontalScrollMenuProps, IHorizontalScrollMenuState } from '../interfaces/HorizontalScrollMenu.js';
 
-export default class HorizontalScrollMenu extends Component<IHorizontalScrollMenuProps, IHorizontalScrollMenuState> {
-	constructor({ props }: { props: IHorizontalScrollMenuProps }) {
+export default class HorizontalScrollMenu extends Component<any, IHorizontalScrollMenuState> {
+	constructor(props: any) {
 		super(props);
 		this.state = {
 			aliments: aliments as Aliment[],
@@ -24,7 +24,9 @@ export default class HorizontalScrollMenu extends Component<IHorizontalScrollMen
 				<Text style={styles.title}>{this.props.title}</Text>
 				<ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
 					{this.state.aliments.map((aliment) => (
-						<Card style={styles.card} key={aliment.id} aliment={aliment} elementsSize={this.props.elementsSize} />
+						<TouchableOpacity key={aliment.id} onPress={() => {this.props.navigation.navigate('Recipe', {aliment})}}>
+							<Card style={styles.card} aliment={aliment} elementsSize={this.props.elementsSize} />
+						</TouchableOpacity>
 					))}
 				</ScrollView>
 			</View>

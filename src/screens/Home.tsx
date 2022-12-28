@@ -6,8 +6,8 @@ import Constants from 'expo-constants';
 import HorizontalScrollMenu from '../components/HorizontalScrollMenu';
 import Search from '../components/Search';
 
-export default class Home extends Component<object> {
-	constructor({ props }: { props: object }) {
+export default class Home extends Component<any> {
+	constructor(props: any) {
 		super(props);
 	}
 
@@ -16,8 +16,8 @@ export default class Home extends Component<object> {
 			<View style={{ marginTop: Constants.statusBarHeight }}>
 				<Search />
 				<ScrollView>
-					<HorizontalScrollMenu title='Trending' elementsSize='sm' />
-					<HorizontalScrollMenu title='Recent' elementsSize='lg' />
+					<HorizontalScrollMenu navigation={this.props.navigation} title='Trending' elementsSize='sm' />
+					<HorizontalScrollMenu  navigation={this.props.navigation} title='Recent' elementsSize='lg' />
 				</ScrollView>
 			</View>
 		);
