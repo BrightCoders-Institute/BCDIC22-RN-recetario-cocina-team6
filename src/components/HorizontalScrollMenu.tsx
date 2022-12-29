@@ -24,7 +24,12 @@ export default class HorizontalScrollMenu extends Component<any, IHorizontalScro
 				<Text style={styles.title}>{this.props.title}</Text>
 				<ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
 					{this.state.aliments.map((aliment) => (
-						<TouchableOpacity key={aliment.id} onPress={() => {this.props.navigation.navigate('Recipe', {aliment})}}>
+						<TouchableOpacity
+							key={aliment.id}
+							onPress={() => {
+								this.props.navigation.navigate('Recipe', { aliment, category: this.props.title });
+							}}
+						>
 							<Card style={styles.card} aliment={aliment} elementsSize={this.props.elementsSize} />
 						</TouchableOpacity>
 					))}

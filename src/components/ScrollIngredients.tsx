@@ -1,9 +1,9 @@
 // Node modules
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { DataTable } from 'react-native-paper';
+// Classes
+import Ingridient from '../classes/Ingredient';
 // Interfaces
-
 
 export default class ScrollIngredients extends Component<any> {
 	constructor(props: any) {
@@ -12,18 +12,41 @@ export default class ScrollIngredients extends Component<any> {
 
 	render() {
 		return (
-			<View>
-				<ScrollView showsHorizontalScrollIndicator={false}>
-					{this.props.ingredients.map((ingredient: any) => (
-						<View key={ingredient.name} style={{marginLeft: 30, marginTop: 30, flexDirection:'row'}}>
-							<Text style={{color:'#ffff'}}>{ingredient.name}</Text>
-							<Text style={{color:'#ffff',marginLeft: 200}}>{ingredient.quantity}</Text>
-							<Text style={{color:'#ffff'}}>{ingredient.unit}</Text>
-						</View>
-					))}
-				</ScrollView>
-			</View>
+			<DataTable>
+				{this.props.ingredients.map((ingredient: Ingridient) => (
+					<DataTable.Row key={ingredient.name}>
+						<DataTable.Cell textStyle={{ color: '#fff' }} style={{}}>
+							{' '}
+							{ingredient.name}{' '}
+						</DataTable.Cell>
+						<DataTable.Cell textStyle={{ color: '#fff' }} style={{ justifyContent: 'flex-end' }}>
+							{ingredient.quantity} {ingredient.unit}
+						</DataTable.Cell>
+					</DataTable.Row>
+				))}
+				{this.props.ingredients.map((ingredient: Ingridient) => (
+					<DataTable.Row key={ingredient.name}>
+						<DataTable.Cell textStyle={{ color: '#fff' }} style={{}}>
+							{' '}
+							{ingredient.name}{' '}
+						</DataTable.Cell>
+						<DataTable.Cell textStyle={{ color: '#fff' }} style={{ justifyContent: 'flex-end' }}>
+							{ingredient.quantity} {ingredient.unit}
+						</DataTable.Cell>
+					</DataTable.Row>
+				))}
+				{this.props.ingredients.map((ingredient: Ingridient) => (
+					<DataTable.Row key={ingredient.name}>
+						<DataTable.Cell textStyle={{ color: '#fff' }} style={{}}>
+							{' '}
+							{ingredient.name}{' '}
+						</DataTable.Cell>
+						<DataTable.Cell textStyle={{ color: '#fff' }} style={{ justifyContent: 'flex-end' }}>
+							{ingredient.quantity} {ingredient.unit}
+						</DataTable.Cell>
+					</DataTable.Row>
+				))}
+			</DataTable>
 		);
 	}
 }
-

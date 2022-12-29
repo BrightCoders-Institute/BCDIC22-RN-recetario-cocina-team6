@@ -17,7 +17,7 @@ export default class Home extends Component<any> {
 				<Search />
 				<ScrollView>
 					<HorizontalScrollMenu navigation={this.props.navigation} title='Trending' elementsSize='sm' />
-					<HorizontalScrollMenu  navigation={this.props.navigation} title='Recent' elementsSize='lg' />
+					<HorizontalScrollMenu navigation={this.props.navigation} title='Recent' elementsSize='lg' />
 				</ScrollView>
 			</View>
 		);

@@ -19,7 +19,7 @@ export default class Navigation extends Component {
 	render() {
 		return (
 			<NavigationContainer theme={NavigationContainerTheme}>
-				<Stack.Navigator>
+				<Stack.Navigator initialRouteName='Home'>
 					<Stack.Screen name='Home' component={Home} options={HomeStackScreenTheme} />
 					<Stack.Screen name='Recipe' component={Recipe} options={DefaultStackScreenTheme} />
 				</Stack.Navigator>

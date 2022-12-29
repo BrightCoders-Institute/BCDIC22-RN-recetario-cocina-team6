@@ -12,8 +12,6 @@ export default class Search extends Component<object, ISearchState> {
 			searchPhrase: '',
 			clicked: false,
 		};
-		//this.setClicked = this.setClicked.bind(this);
-		//this.setSearchPhrase = this.setSearchPhrase.bind(this);
 	}
 
 	setClicked = (clicked: boolean) => {
