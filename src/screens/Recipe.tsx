@@ -1,6 +1,6 @@
 // Node modules
 import React, { Component } from 'react';
-import { ScrollView, View, ImageBackground, Text } from 'react-native';
+import { ScrollView, View, ImageBackground, Text, Share } from 'react-native';
 import Constants from 'expo-constants';
 import { MaterialIcons } from '@expo/vector-icons';
 // Components
@@ -29,17 +29,34 @@ export default class Recipe extends Component<any> {
 									size={30}
 									color='#fff'
 									style={{ textAlign: 'center' }}
-									onPress={() => {
-										this.props.navigation.pop();
+									onPress={async () => {
+										await this.props.navigation.goBack();
 									}}
 								/>
 							</View>
 							<View style={{ flex: 0.7 }}></View>
 							<View style={{ flex: 0.1 }}>
-								<MaterialIcons name='ios-share' size={30} color='#fff' style={{ textAlign: 'center' }} />
+								<MaterialIcons
+									name='ios-share'
+									size={30}
+									color='#fff'
+									style={{ textAlign: 'center' }}
+									onPress={() => {
+										Share.share({ message: 'Receta' });
+									}}
+								/>
 							</View>
 							<View style={{ flex: 0.1 }}>
-								<MaterialIcons name='favorite-outline' size={30} color='#fff' style={{ textAlign: 'center' }} />
+								<MaterialIcons
+									name={this.props.route.params.aliment.favorite ? 'favorite' : 'favorite-border'}
+									size={30}
+									color='#fff'
+									style={{ textAlign: 'center' }}
+									onPress={() => {
+										this.props.route.params.aliment.favorite = !this.props.route.params.aliment.favorite;
+										this.setState({ favorite: this.props.route.params.aliment.favorite });
+									}}
+								/>
 							</View>
 						</View>
 						<View style={{ flex: 1 }}>

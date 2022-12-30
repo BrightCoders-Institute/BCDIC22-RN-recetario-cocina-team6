@@ -2,7 +2,7 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Launch Android Emulator",
+			"label": "Launch Android",
 			"command": "${command:reactNative.launchAndroidSimulator}",
 			"problemMatcher": []
 		},
@@ -13,7 +13,7 @@
 		},
 		{
 			"label": "Launch Android & DevTools",
-			"dependsOn": ["Launch Android Emulator", "Launch DevTools"],
+			"dependsOn": ["Launch Android", "Launch DevTools"],
 			"dependsOrder": "sequence"
 		}
 	]

@@ -9,6 +9,7 @@ export default class Aliment {
 	public name: string;
 	public servings: number;
 	public ingredients: Array<Ingredient>;
+	public favorite: boolean;
 
 	constructor({ id, image, name, servings, ingredients }: IAlimentConstructor) {
 		this.id = id;
@@ -16,5 +17,6 @@ export default class Aliment {
 		this.name = name;
 		this.servings = servings;
 		this.ingredients = ingredients;
+		this.favorite = false;
 	}
 }

@@ -5,7 +5,17 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Debug (React Native Tools)",
+			"name": "Debug [Expo] (React Native Tools)",
+			"cwd": "${workspaceFolder}",
+			"type": "reactnative",
+			"request": "launch",
+			"platform": "exponent",
+			"sourceMaps": true,
+			"expoHostType": "lan",
+			"openExpoQR": false
+		},
+		{
+			"name": "Debug with DevTools [Expo] (React Native Tools)",
 			"cwd": "${workspaceFolder}",
 			"type": "reactnative",
 			"request": "launch",
@@ -16,7 +26,18 @@
 			"preLaunchTask": "Launch DevTools"
 		},
 		{
-			"name": "Debug Android (React Native Tools)",
+			"name": "Debug Android [Expo] (React Native Tools)",
+			"cwd": "${workspaceFolder}",
+			"type": "reactnative",
+			"request": "launch",
+			"platform": "exponent",
+			"sourceMaps": true,
+			"expoHostType": "lan",
+			"openExpoQR": false,
+			"preLaunchTask": "Launch Android"
+		},
+		{
+			"name": "Debug Android with DevTools [Expo] (React Native Tools)",
 			"cwd": "${workspaceFolder}",
 			"type": "reactnative",
 			"request": "launch",

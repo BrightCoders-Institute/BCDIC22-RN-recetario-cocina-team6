@@ -8,14 +8,11 @@ import Card from './Card';
 // Databases
 import aliments from '../database/aliments.json';
 // Interfaces
-import { IHorizontalScrollMenuProps, IHorizontalScrollMenuState } from '../interfaces/HorizontalScrollMenu.js';
+import { IHorizontalScrollMenuProps } from '../interfaces/HorizontalScrollMenu.js';
 
-export default class HorizontalScrollMenu extends Component<any, IHorizontalScrollMenuState> {
+export default class HorizontalScrollMenu extends Component<any> {
 	constructor(props: any) {
 		super(props);
-		this.state = {
-			aliments: aliments as Aliment[],
-		};
 	}
 
 	render() {
@@ -23,14 +20,22 @@ export default class HorizontalScrollMenu extends Component<any, IHorizontalScro
 			<View style={styles.container}>
 				<Text style={styles.title}>{this.props.title}</Text>
 				<ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-					{this.state.aliments.map((aliment) => (
+					{this.props.data.map((aliment: Aliment) => (
 						<TouchableOpacity
 							key={aliment.id}
-							onPress={() => {
-								this.props.navigation.navigate('Recipe', { aliment, category: this.props.title });
+							onPress={async () => {
+								await this.props.navigation.navigate({
+									name: 'Recipe',
+									params: { aliment, category: this.props.title },
+								});
 							}}
 						>
-							<Card style={styles.card} aliment={aliment} elementsSize={this.props.elementsSize} />
+							{aliment.favorite && this.props.title === 'Trending' && (
+								<Card style={styles.card} aliment={aliment} elementsSize={this.props.elementsSize} />
+							)}
+							{this.props.title !== 'Trending' && (
+								<Card style={styles.card} aliment={aliment} elementsSize={this.props.elementsSize} />
+							)}
 						</TouchableOpacity>
 					))}
 				</ScrollView>
