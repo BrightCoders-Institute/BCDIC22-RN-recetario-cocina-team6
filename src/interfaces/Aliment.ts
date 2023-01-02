@@ -6,5 +6,5 @@ export interface IAlimentConstructor {
 	image: string;
 	name: string;
 	servings: number;
-	ingredients: Array<Ingredient>;
+	ingredients: Ingredient[];
 }

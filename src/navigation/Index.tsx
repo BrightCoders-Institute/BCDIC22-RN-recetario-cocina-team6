@@ -7,17 +7,18 @@ import Aliment from '../classes/Aliment';
 //Constants
 import { NavigationContainerTheme, HomeStackScreenTheme, DefaultStackScreenTheme } from '../constants/themes';
 // Databases
-import aliments from '../database/aliments.json';
+import aliments from '../databases/aliments.json';
+// Interfaces
+import { RootStackParamList } from '../interfaces/RootStackParamList';
 // Screens
 import Home from '../screens/Home';
 import Recipe from '../screens/Recipe';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default class Navigation extends Component {
 	constructor(props: object) {
 		super(props);
-		this.state = {};
 	}
 
 	render() {

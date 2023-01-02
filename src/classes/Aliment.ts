@@ -8,7 +8,7 @@ export default class Aliment {
 	public image: string;
 	public name: string;
 	public servings: number;
-	public ingredients: Array<Ingredient>;
+	public ingredients: Ingredient[];
 	public favorite: boolean;
 
 	constructor({ id, image, name, servings, ingredients }: IAlimentConstructor) {

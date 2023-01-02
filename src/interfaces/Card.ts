@@ -4,7 +4,7 @@ import { ViewStyle } from 'react-native';
 import Aliment from '../classes/Aliment';
 
 export interface ICardProps {
-	aliment: Aliment;
+	item: Aliment;
 	elementsSize: 'sm' | 'lg';
 	style?: ViewStyle;
 }

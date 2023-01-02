@@ -5,13 +5,11 @@ import { Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import Aliment from '../classes/Aliment';
 // Components
 import Card from './Card';
-// Databases
-import aliments from '../database/aliments.json';
 // Interfaces
 import { IHorizontalScrollMenuProps } from '../interfaces/HorizontalScrollMenu.js';
 
-export default class HorizontalScrollMenu extends Component<any> {
-	constructor(props: any) {
+export default class HorizontalScrollMenu extends Component<IHorizontalScrollMenuProps> {
+	constructor(props: IHorizontalScrollMenuProps) {
 		super(props);
 	}
 
@@ -20,24 +18,26 @@ export default class HorizontalScrollMenu extends Component<any> {
 			<View style={styles.container}>
 				<Text style={styles.title}>{this.props.title}</Text>
 				<ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-					{this.props.data.map((aliment: Aliment) => (
-						<TouchableOpacity
-							key={aliment.id}
-							onPress={async () => {
-								await this.props.navigation.navigate({
-									name: 'Recipe',
-									params: { aliment, category: this.props.title },
-								});
-							}}
-						>
-							{aliment.favorite && this.props.title === 'Trending' && (
-								<Card style={styles.card} aliment={aliment} elementsSize={this.props.elementsSize} />
-							)}
-							{this.props.title !== 'Trending' && (
-								<Card style={styles.card} aliment={aliment} elementsSize={this.props.elementsSize} />
-							)}
-						</TouchableOpacity>
-					))}
+					{this.props.data
+						?.sort((a: Aliment, b: Aliment) => (a.name > b.name ? 1 : -1))
+						.map((item: Aliment) => (
+							<TouchableOpacity
+								key={item.id}
+								onPress={() => {
+									this.props.navigation.navigate({
+										name: 'Recipe',
+										params: { data: item, category: this.props.title },
+									});
+								}}
+							>
+								{item.favorite && this.props.title === 'Trending' && (
+									<Card style={styles.card} item={item} elementsSize={this.props.elementsSize} />
+								)}
+								{this.props.title !== 'Trending' && (
+									<Card style={styles.card} item={item} elementsSize={this.props.elementsSize} />
+								)}
+							</TouchableOpacity>
+						))}
 				</ScrollView>
 			</View>
 		);

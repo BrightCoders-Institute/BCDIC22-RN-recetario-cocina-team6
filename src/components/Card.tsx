@@ -12,8 +12,8 @@ export default class Card extends Component<ICardProps> {
 	render() {
 		return (
 			<View style={[styles[`${this.props.elementsSize}_container`], this.props.style]}>
-				<Image source={{ uri: this.props.aliment.image }} style={styles[`${this.props.elementsSize}_image`]} />
-				<Text style={styles[`${this.props.elementsSize}_text`]}>{this.props.aliment.name}</Text>
+				<Image source={{ uri: this.props.item.image }} style={styles[`${this.props.elementsSize}_image`]} />
+				<Text style={styles[`${this.props.elementsSize}_text`]}>{this.props.item.name}</Text>
 			</View>
 		);
 	}

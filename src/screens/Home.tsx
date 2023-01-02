@@ -5,34 +5,34 @@ import Constants from 'expo-constants';
 // Components
 import HorizontalScrollMenu from '../components/HorizontalScrollMenu';
 import Search from '../components/Search';
-import Aliment from '../classes/Aliment.js';
+// Interfaces
+import { IHomeProps, IHomeState } from '../interfaces/Home';
 
-export default class Home extends Component<any, any> {
-	constructor(props: any) {
+export default class Home extends Component<IHomeProps, IHomeState> {
+	constructor(props: IHomeProps) {
 		super(props);
 		this.state = {
-			aliments: this.props.route.params.aliments,
+			data: this.props.route.params.aliments,
 		};
 	}
 
 	render() {
-		console.log(this.state.aliments);
 		return (
 			<View style={{ marginTop: Constants.statusBarHeight }}>
 				<Search />
 				<ScrollView>
-					{this.state.aliments.some((aliment: Aliment) => aliment.favorite) > 0 && (
+					{this.state.data?.some((aliment) => aliment.favorite) && (
 						<HorizontalScrollMenu
 							title='Trending'
 							elementsSize='sm'
-							data={this.state.aliments}
+							data={this.state.data}
 							navigation={this.props.navigation}
 						/>
 					)}
 					<HorizontalScrollMenu
 						title='Recent'
 						elementsSize='lg'
-						data={this.state.aliments}
+						data={this.state.data}
 						navigation={this.props.navigation}
 					/>
 				</ScrollView>

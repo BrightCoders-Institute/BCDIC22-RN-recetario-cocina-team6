@@ -4,12 +4,12 @@ import { ScrollView, View, ImageBackground, Text, Share } from 'react-native';
 import Constants from 'expo-constants';
 import { MaterialIcons } from '@expo/vector-icons';
 // Components
-import ScrollIngredients from '../components/ScrollIngredients';
+import VerticalScrollMenu from '../components/VerticalScrollMenu';
 // Interfaces
 import { IRecipeProps } from '../interfaces/Recipe';
 
-export default class Recipe extends Component<any> {
-	constructor(props: any) {
+export default class Recipe extends Component<IRecipeProps> {
+	constructor(props: IRecipeProps) {
 		super(props);
 	}
 
@@ -17,7 +17,7 @@ export default class Recipe extends Component<any> {
 		return (
 			<View style={{ marginTop: Constants.statusBarHeight }}>
 				<ImageBackground
-					source={{ uri: this.props.route.params.aliment.image }}
+					source={{ uri: this.props.route.params.data.image }}
 					imageStyle={{ opacity: 0.4 }}
 					style={{ width: '100%', height: 300 }}
 				>
@@ -29,8 +29,8 @@ export default class Recipe extends Component<any> {
 									size={30}
 									color='#fff'
 									style={{ textAlign: 'center' }}
-									onPress={async () => {
-										await this.props.navigation.goBack();
+									onPress={() => {
+										this.props.navigation.navigate('Home', {});
 									}}
 								/>
 							</View>
@@ -41,20 +41,20 @@ export default class Recipe extends Component<any> {
 									size={30}
 									color='#fff'
 									style={{ textAlign: 'center' }}
-									onPress={() => {
-										Share.share({ message: 'Receta' });
+									onPress={async () => {
+										await Share.share({ message: `Recipe ${this.props.route.params.data.name}` });
 									}}
 								/>
 							</View>
 							<View style={{ flex: 0.1 }}>
 								<MaterialIcons
-									name={this.props.route.params.aliment.favorite ? 'favorite' : 'favorite-border'}
+									name={this.props.route.params.data.favorite ? 'favorite' : 'favorite-border'}
 									size={30}
 									color='#fff'
 									style={{ textAlign: 'center' }}
 									onPress={() => {
-										this.props.route.params.aliment.favorite = !this.props.route.params.aliment.favorite;
-										this.setState({ favorite: this.props.route.params.aliment.favorite });
+										this.props.route.params.data.favorite = !this.props.route.params.data.favorite;
+										this.setState({ favorite: this.props.route.params.data.favorite });
 									}}
 								/>
 							</View>
@@ -63,7 +63,7 @@ export default class Recipe extends Component<any> {
 							<Text style={{ fontSize: 20, color: '#ffff', textTransform: 'uppercase' }}>
 								{this.props.route.params.category}
 							</Text>
-							<Text style={{ fontSize: 20, color: '#ffff' }}>{this.props.route.params.aliment.name}</Text>
+							<Text style={{ fontSize: 20, color: '#ffff' }}>{this.props.route.params.data.name}</Text>
 						</View>
 					</View>
 				</ImageBackground>
@@ -89,9 +89,9 @@ export default class Recipe extends Component<any> {
 								color: '#ffff',
 							}}
 						>
-							for {this.props.route.params.aliment.servings} servings
+							for {this.props.route.params.data.servings} servings
 						</Text>
-						<ScrollIngredients ingredients={this.props.route.params.aliment.ingredients} />
+						<VerticalScrollMenu data={this.props.route.params.data.ingredients} />
 					</View>
 				</ScrollView>
 			</View>

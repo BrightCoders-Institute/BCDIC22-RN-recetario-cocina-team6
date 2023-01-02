@@ -1,6 +1,6 @@
-// Classes
-import Aliment from '../classes/Aliment';
+// Node modules
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+// Interfaces
+import { RootStackParamList } from './RootStackParamList';
 
-export interface IRecipeProps {
-	aliment: Aliment;
-}
+export type IRecipeProps = NativeStackScreenProps<RootStackParamList, 'Recipe'>;
