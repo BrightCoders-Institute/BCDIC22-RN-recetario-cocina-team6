@@ -48,10 +48,10 @@ npm test
 
 ## Insignias
 
-| Analizador de código | Estado                                                                                      |
-| -------------------- | ------------------------------------------------------------------------------------------- |
-| Codacy               | [Codacy Badge](https://app.codacy.com/project/badge/Grade/2ff2741f11e94d54836ddd3658de8808) |
-| CodeCov              | [codecov]()                                                                                 |
+| Analizador de código | Estado                                                                                       |
+| -------------------- | -------------------------------------------------------------------------------------------- |
+| Codacy               | ![Codacy Badge](https://app.codacy.com/project/badge/Grade/2ff2741f11e94d54836ddd3658de8808) |
+| CodeCov              | ![Codecov]()                                                                                  |
 
 ## Créditos
 
