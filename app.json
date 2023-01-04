@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "recetario-de-cocina",
-    "slug": "recetario-de-cocina",
+    "slug": "bcdic22-rn-recetario-cocina-team6",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
@@ -13,24 +13,36 @@
       "backgroundColor": "#282828"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/826ea2f0-2960-4d87-9b0c-8fe9358e80e4"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.brightcoders.bcdic22rnrecetariococinateam6"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#282828"
-      }
+      },
+      "package": "com.brightcoders.bcdic22rnrecetariococinateam6"
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
     },
-    "sdkVersion": "47.0.0"
+    "sdkVersion": "47.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "826ea2f0-2960-4d87-9b0c-8fe9358e80e4"
+      }
+    },
+    "owner": "brightcoders",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
   },
   "name": "recetario-de-cocina"
 }
